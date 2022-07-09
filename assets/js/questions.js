@@ -1,9 +1,10 @@
 // TODO: store all questions here
 // NOTE: hint - can use an array that contains objects
 const questions = [
-    {Question: "Which of the following is not a primitive data type in Javascript?",
-    Choices: ['String', 'Number', 'Boolean', 'Array'],
-    Answer: 3,
+    {
+        Question: "Which of the following is not a primitive data type in Javascript?",
+        Choices: ['String', 'Number', 'Boolean', 'Array'],
+        Answer: 3,
     },
 
     {
@@ -34,4 +35,4 @@ const questions = [
 
 
 
-console.log(questions[0]);
+console.log(questions);

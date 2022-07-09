@@ -32,6 +32,11 @@ button:hover {
     background-color: red;
 }
 
+li:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
 .timer {
     float: right;
     border: 2px solid black;
@@ -69,4 +74,16 @@ button:hover {
 
 #goBack:hover {
     background-color: red;
+}
+
+#displayQuestion {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+#displayChoices {
+    font-size: 20px;
+    display: block;
+    margin: auto;
 }
