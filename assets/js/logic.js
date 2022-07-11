@@ -7,7 +7,7 @@ var enterScore = document.createElement('input');
 var score = secondsLeft;
 
 function enterScore() {
-    questionEl.style.display = 'none';
+    questionElOne.style.display = 'none';
     choicesEl.style.display = 'none';
     var resultsEl = document.querySelector('#results');
     var score = secondsLeft;
@@ -56,9 +56,12 @@ function timerAndHideMain() {
     displayQuestionOne();
 }
 
-var questionEl = document.querySelector('#displayQuestion');
-var choicesEl = document.querySelector('#displayChoices');
+var questionElOne = document.querySelector('#displayQuestionOne');
+var choicesElOne = document.querySelector('#displayChoicesOne');
 var liEl = document.createElement("li");
+var questionElTwo = document.querySelector('#displayQuestionTwo');
+var choicesElTwo = document.querySelector('#displayChoicesTwo');
+var testes = document.querySelector('#testes');
 
 
 var firstQuestion = questions[0];
@@ -70,16 +73,79 @@ var fifthQuestion = questions[4];
 var wrongAudio = document.querySelector('#wrongAudio');
 var correctAudio = document.querySelector('#correctAudio');
 
+function displayQuestionTwo() {
+    questionElOne.style.display = 'none';
+    var testes = document.querySelector('#testes');
+
+    testes.style.display = 'none';
+    questionElTwo.textContent = secondQuestion.Question;
+
+    for (var i = 0; i < 4; i++) {
+        var liEl = document.createElement('li');
+        liEl.textContent = secondQuestion.Choices[i];
+        liEl.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px;');
+        // liEl.setAttribute('id', 'option');
+        choicesElTwo.appendChild(liEl);
+        choicesElTwo.setAttribute('style', 'text-align: center;');
+    }
+    var AquestionTwo = document.getElementsByTagName('li')[0];
+    var BquestionTwo = document.getElementsByTagName('li')[1];
+    var CquestionTwo = document.getElementsByTagName('li')[2];
+    var DquestionTwo = document.getElementsByTagName('li')[3];
+
+    //this is the copy paste
+    var wrongAudio = document.querySelector('#wrongAudio');
+    var correctAudio = document.querySelector('#correctAudio');
+    function playWrongAudio() {
+        wrongAudio.play();
+    }
+    function playCorrectAudio() {
+        correctAudio.play();
+    }
+    // var timeout = setTimeout(waitAndSee, 500);
+    // function waitAndSee() {
+    //     timeout;
+    // }
+
+    function wrongOne() {
+        AquestionTwo.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
+        playWrongAudio();
+        // setTimeout(displayQuestionTwo, 500);
+    }
+    function wrongTwo() {
+        DquestionTwo.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
+        playCorrectAudio();
+        // setTimeout(displayQuestionTwo, 500);
+    }
+    function wrongThree() {
+        CquestionTwo.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
+        playWrongAudio();
+        // setTimeout(displayQuestionTwo, 500);
+    }
+    function right() {
+        BquestionTwo.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: green;');
+        playWrongAudio();
+        // setTimeout(displayQuestionTwo, 500);
+    }
+
+
+    AquestionTwo.addEventListener('click', wrongOne);
+    BquestionTwo.addEventListener('click', right);
+    CquestionTwo.addEventListener('click', wrongThree);
+    DquestionTwo.addEventListener('click', wrongTwo);
+
+}
+
 function displayQuestionOne() {
-    questionEl.textContent = firstQuestion.Question;
+    questionElOne.textContent = firstQuestion.Question;
 
     for (var i = 0; i < 4; i++) {
         var liEl = document.createElement('li');
         liEl.textContent = firstQuestion.Choices[i];
         liEl.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px;');
-        liEl.setAttribute('id', 'option');
-        choicesEl.appendChild(liEl);
-        choicesEl.setAttribute('style', 'text-align: center;');
+        // liEl.setAttribute('id', 'option');
+        choicesElOne.appendChild(liEl);
+        choicesElOne.setAttribute('style', 'text-align: center;');
     }
 
     var optionOne = document.getElementsByTagName('li')[0];
@@ -97,29 +163,33 @@ function displayQuestionOne() {
     function playWrongAudio() {
         wrongAudio.play();
     }
-
+    function playCorrectAudio() {
+        correctAudio.play();
+    }
+    // var timeout = setTimeout(waitAndSee, 500);
+    // function waitAndSee() {
+    //     timeout;
+    // }
 
     function wrongOne() {
         optionOne.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
-        // function playWrongAudio() {
-        //     wrongAudio.play();
-        // }
         playWrongAudio();
+        setTimeout(displayQuestionTwo, 500);
     }
     function wrongTwo() {
         optionTwo.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
         playWrongAudio();
+        setTimeout(displayQuestionTwo, 500);
     }
     function wrongThree() {
         optionThree.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
         playWrongAudio();
+        setTimeout(displayQuestionTwo, 500);
     }
     function right() {
         optionFour.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: green;');
-        function playCorrectAudio() {
-            correctAudio.play();
-        }
         playCorrectAudio();
+        setTimeout(displayQuestionTwo, 500);
     }
 
 
