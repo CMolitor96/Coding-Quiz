@@ -34,7 +34,7 @@ button:hover {
 
 li:hover {
     cursor: pointer;
-    background-color: red;
+    box-shadow: 5px 7px;
 }
 
 .timer {
