@@ -5,6 +5,7 @@ var startButton = document.querySelector('#start');
 var resultsEl = document.querySelector('#results');
 var score = secondsLeft;
 
+//connecting audio to right and wrong answers
 var wrongAudio = document.querySelector('#wrongAudio');
 var correctAudio = document.querySelector('#correctAudio');
 function playWrongAudio() {
@@ -14,8 +15,10 @@ function playCorrectAudio() {
     correctAudio.play();
 }
 
+//End of quiz screen
 function enterScores() {
     clearInterval(countdown);
+    timeLeft.textContent = secondsLeft;
     questionElFive.style.display = 'none';
     var hideDisplayFive = document.querySelector('#hideDisplayFive');
     hideDisplayFive.style.display = 'none';
@@ -89,6 +92,7 @@ function timerAndHideMain() {
     displayQuestionOne();
 }
 
+//DOM elements
 var questionElOne = document.querySelector('#displayQuestionOne');
 var choicesElOne = document.querySelector('#displayChoicesOne');
 var liEl = document.createElement("li");
@@ -111,17 +115,8 @@ var fifthQuestion = questions[4];
 var wrongAudio = document.querySelector('#wrongAudio');
 var correctAudio = document.querySelector('#correctAudio');
 
-var wrongAudio = document.querySelector('#wrongAudio');
-var correctAudio = document.querySelector('#correctAudio');
-function playWrongAudio() {
-    wrongAudio.play();
-}
-function playCorrectAudio() {
-    correctAudio.play();
-}
 
-
-
+//First question
 function displayQuestionOne() {
     questionElOne.textContent = firstQuestion.Question;
 
@@ -139,23 +134,6 @@ function displayQuestionOne() {
     var optionThree = document.getElementsByTagName('li')[2];
     var optionFour = document.getElementsByTagName('li')[3];
 
-
-    // optionOne.addEventListener('click', wrongChoice);
-    // optionTwo.addEventListener('click', wrongChoice);
-    // optionThree.addEventListener('click', wrongChoice);
-
-    // var wrongAudio = document.querySelector('#wrongAudio');
-    // var correctAudio = document.querySelector('#correctAudio');
-    // function playWrongAudio() {
-    //     wrongAudio.play();
-    // }
-    // function playCorrectAudio() {
-    //     correctAudio.play();
-    // }
-    // var timeout = setTimeout(waitAndSee, 500);
-    // function waitAndSee() {
-    //     timeout;
-    // }
 
     function wrongOne() {
         secondsLeft = secondsLeft - 20;
@@ -191,7 +169,7 @@ function displayQuestionOne() {
 
 }
 
-
+//Second question
 function displayQuestionTwo() {
     questionElOne.style.display = 'none';
     var hideDisplayOne = document.querySelector('#hideDisplayOne');
@@ -213,15 +191,6 @@ function displayQuestionTwo() {
     var CquestionTwo = parent.children[2];
     var DquestionTwo = parent.children[3];
     
-
-    // var wrongAudio = document.querySelector('#wrongAudio');
-    // var correctAudio = document.querySelector('#correctAudio');
-    // function playWrongAudio() {
-    //     wrongAudio.play();
-    // }
-    // function playCorrectAudio() {
-    //     correctAudio.play();
-    // }
 
     function wrongOneQTwo() {
         secondsLeft = secondsLeft - 20;
@@ -254,6 +223,7 @@ function displayQuestionTwo() {
 
 }
 
+//Third question
 function displayQuestionThree() {
     questionElTwo.style.display = 'none';
     hideDisplayTwo = document.querySelector('#hideDisplayTwo');
@@ -276,18 +246,27 @@ function displayQuestionThree() {
 
     function Q3wrongOne() {
         secondsLeft = secondsLeft - 20;
+        if (secondsLeft < 0) {
+            secondsLeft = 0;
+        }
         BquestionThree.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
         playWrongAudio();
         setTimeout(displayQuestionFour, 500);
     }
     function Q3wrongTwo() {
         secondsLeft = secondsLeft - 20;
+        if (secondsLeft < 0) {
+            secondsLeft = 0;
+        }
         CquestionThree.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
         playWrongAudio();
         setTimeout(displayQuestionFour, 500);
     }
     function Q3wrongThree() {
         secondsLeft = secondsLeft - 20;
+        if (secondsLeft < 0) {
+            secondsLeft = 0;
+        }
         DquestionThree.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
         playWrongAudio();
         setTimeout(displayQuestionFour, 500);
@@ -307,6 +286,7 @@ function displayQuestionThree() {
 
 }
 
+//Fourth question
 function displayQuestionFour() {
     questionElThree.style.display = 'none';
     var hideDisplayThree = document.querySelector('#hideDisplayThree');
@@ -329,18 +309,27 @@ function displayQuestionFour() {
 
     function Q4wrongOne() {
         secondsLeft = secondsLeft - 20;
+        if (secondsLeft < 0) {
+            secondsLeft = 0;
+        }
         AquestionFour.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
         playWrongAudio();
         setTimeout(displayQuestionFive, 500);
     }
     function Q4wrongTwo() {
         secondsLeft = secondsLeft - 20;
+        if (secondsLeft < 0) {
+            secondsLeft = 0;
+        }
         CquestionFour.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
         playWrongAudio();
         setTimeout(displayQuestionFive, 500);
     }
     function Q4wrongThree() {
         secondsLeft = secondsLeft - 20;
+        if (secondsLeft < 0) {
+            secondsLeft = 0;
+        }
         BquestionFour.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
         playWrongAudio();
         setTimeout(displayQuestionFive, 500);
@@ -359,6 +348,7 @@ function displayQuestionFour() {
 
 }
 
+//Fifth question
 function displayQuestionFive() {
     questionElFour.style.display = 'none';
     var hideDisplayFour = document.querySelector('#hideDisplayFour');
@@ -382,6 +372,9 @@ function displayQuestionFive() {
 
     function Q5wrongOne() {
         secondsLeft = secondsLeft - 20;
+        if (secondsLeft < 0) {
+            secondsLeft = 0;
+        }
         AquestionFive.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
         playWrongAudio();
         stopTimer();
@@ -390,6 +383,9 @@ function displayQuestionFive() {
     }
     function Q5wrongTwo() {
         secondsLeft = secondsLeft - 20;
+        if (secondsLeft < 0) {
+            secondsLeft = 0;
+        }
         BquestionFive.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
         playWrongAudio();
         stopTimer();
@@ -397,6 +393,9 @@ function displayQuestionFive() {
     }
     function Q5wrongThree() {
         secondsLeft = secondsLeft - 20;
+        if (secondsLeft < 0) {
+            secondsLeft = 0;
+        }
         DquestionFive.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
         playWrongAudio();
         stopTimer();
@@ -417,19 +416,6 @@ function displayQuestionFive() {
     DquestionFive.addEventListener('click', Q5wrongThree);
 }
 
-
-
-
-
-
-// function stopTimer() {
-//     clearInterval(countdown);
-// }
-
-// startButton.addEventListener('click', hideMain);
-// startButton.addEventListener('click', countdownTimer);
 startButton.addEventListener('click', timerAndHideMain);
-if (startButton.clicked === true) {
-    console.log("Hello");
-}
+
 
