@@ -28,21 +28,54 @@ function enterScores() {
     var instructions = document.createElement('h1');
     instructions.textContent = 'Please input your initials to log your score';
     var inputScore = document.createElement('input');
+    inputScore.setAttribute('id', 'userInput');
     inputScore.setAttribute('style', 'padding: 10px; height: 50px; margin: 10px; text-align: center; font-size: 20px;')
     var submitScore = document.createElement('button');
+    submitScore.setAttribute('id', 'submitButton');
     submitScore.textContent = 'Submit';
     resultsEl.appendChild(instructions);
     resultsEl.appendChild(inputScore);
     resultsEl.appendChild(submitScore);
+    var submission = document.querySelector('#submitButton');
+    submission.addEventListener('click', showHighScore);
 
-    while (inputScore.length > 3) {
-        alert('Please only provide up to 4 characters for your initials');
-    }
 }
+
+// var userData = [];
+//var userDataScore = {};
+// var userDataName = {};
+function showHighScore() {
+    var text = localStorage.getItem('Highscores');
+    var haz = JSON.parse(text);
+   if (text === null) {
+    haz = {
+        Name: 'Total',
+    };
+  }
+  console.log(haz);
+    
+    var score = secondsLeft;
+    var userName = document.querySelector('#userInput').value;
+    userGoose = {};
+    userGoose[userName] = score;
+    //var userDataScore = {};
+    
+    // userData.push(userDataScore);
+    var finalUserData = Object.assign(haz, userGoose);    // var finalObject = JSON.stringify(finalUserData);
+    // haz.push(finalObject);
+    // console.log(finalUserData);
+    location.href = 'highscores.html';
+    var myJSON = JSON.stringify(finalUserData);
+    localStorage.setItem('Highscores', myJSON);
+    
+    
+}
+
 
 //countdown timer
 var timeLeft = document.querySelector('#countdown');
-var secondsLeft = 60, countdown;
+var secondsLeft = 60;
+var countdown;
 
 
 function startTimer() {
