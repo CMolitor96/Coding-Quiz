@@ -99,3 +99,22 @@ li:hover {
     text-align: center;
     margin-top: 100px;
 }
+
+#displayQuestionFour {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+#displayQuestionFive {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+#results {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 100px;
+}
+
