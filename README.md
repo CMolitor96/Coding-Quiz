@@ -3,6 +3,7 @@
 Please enjoy my coding quiz. There are a total of five questions related to Javascript. You have 75 seconds to answer all the questions but choose your answers carefully because for every wrong answer you lose 20 seconds! You will be able to view your scores stored locally, so see if you can beat yourself. Please enjoy!
 
 URL of deployed application:
+https://cmolitor96.github.io/Coding-Quiz/
 
 Screenshot of webpage:
 
