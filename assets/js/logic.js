@@ -61,7 +61,11 @@ var choicesElOne = document.querySelector('#displayChoicesOne');
 var liEl = document.createElement("li");
 var questionElTwo = document.querySelector('#displayQuestionTwo');
 var choicesElTwo = document.querySelector('#displayChoicesTwo');
-var testes = document.querySelector('#testes');
+var questionElThree = document.querySelector('#displayQuestionThree');
+var choicesElThree = document.querySelector('#displayChoicesThree');
+var questionElFour = document.querySelector('#displayQuestionFour');
+var choicesElFour = document.querySelector('#displayChoicesFour');
+// var testes = document.querySelector('#testes');
 
 
 var firstQuestion = questions[0];
@@ -75,9 +79,9 @@ var correctAudio = document.querySelector('#correctAudio');
 
 function displayQuestionTwo() {
     questionElOne.style.display = 'none';
-    var testes = document.querySelector('#testes');
+    var hideDisplayOne = document.querySelector('#hideDisplayOne');
 
-    testes.style.display = 'none';
+    hideDisplayOne.style.display = 'none';
     questionElTwo.textContent = secondQuestion.Question;
 
     for (var i = 0; i < 4; i++) {
@@ -88,10 +92,16 @@ function displayQuestionTwo() {
         choicesElTwo.appendChild(liEl);
         choicesElTwo.setAttribute('style', 'text-align: center;');
     }
-    var AquestionTwo = document.getElementsByTagName('li')[0];
-    var BquestionTwo = document.getElementsByTagName('li')[1];
-    var CquestionTwo = document.getElementsByTagName('li')[2];
-    var DquestionTwo = document.getElementsByTagName('li')[3];
+    var parent = document.querySelector('#displayChoicesTwo');
+    var AquestionTwo = parent.children[0];
+    // var AquestionTwo = document.getElementsByTagName('li')[0];
+    // var BquestionTwo = document.getElementsByTagName('li')[1];
+    // var CquestionTwo = document.getElementsByTagName('li')[2];
+    // var DquestionTwo = document.getElementsByTagName('li')[3];
+    var BquestionTwo = parent.children[1];
+    var CquestionTwo = parent.children[2];
+    var DquestionTwo = parent.children[3];
+    
 
     //this is the copy paste
     var wrongAudio = document.querySelector('#wrongAudio');
@@ -107,32 +117,31 @@ function displayQuestionTwo() {
     //     timeout;
     // }
 
-    function wrongOne() {
+    function wrongOneQTwo() {
         AquestionTwo.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
         playWrongAudio();
-        // setTimeout(displayQuestionTwo, 500);
+        setTimeout(displayQuestionThree, 500);
     }
-    function wrongTwo() {
+    function wrongTwoQTwo() {
         DquestionTwo.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
-        playCorrectAudio();
-        // setTimeout(displayQuestionTwo, 500);
+        playWrongAudio();
+        setTimeout(displayQuestionThree, 500);
     }
-    function wrongThree() {
+    function wrongThreeQTwo() {
         CquestionTwo.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
         playWrongAudio();
-        // setTimeout(displayQuestionTwo, 500);
+        setTimeout(displayQuestionThree, 500);
     }
-    function right() {
+    function rightQTwo() {
         BquestionTwo.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: green;');
-        playWrongAudio();
-        // setTimeout(displayQuestionTwo, 500);
+        playCorrectAudio();
+        setTimeout(displayQuestionThree, 500);
     }
 
-
-    AquestionTwo.addEventListener('click', wrongOne);
-    BquestionTwo.addEventListener('click', right);
-    CquestionTwo.addEventListener('click', wrongThree);
-    DquestionTwo.addEventListener('click', wrongTwo);
+    AquestionTwo.addEventListener('click', wrongOneQTwo);
+    BquestionTwo.addEventListener('click', rightQTwo);
+    CquestionTwo.addEventListener('click', wrongThreeQTwo);
+    DquestionTwo.addEventListener('click', wrongTwoQTwo);
 
 }
 
@@ -199,6 +208,66 @@ function displayQuestionOne() {
     optionFour.addEventListener('click', right);
     
     
+
+}
+
+function displayQuestionThree() {
+    questionElTwo.style.display = 'none';
+    hideDisplayTwo = document.querySelector('#hideDisplayTwo');
+    hideDisplayTwo.style.display = 'none';
+
+    questionElThree.textContent = thirdQuestion.Question;
+    for (var i = 0; i < 4; i++) {
+        var liEl = document.createElement('li');
+        liEl.textContent = thirdQuestion.Choices[i];
+        liEl.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px;');
+        // liEl.setAttribute('id', 'option');
+        choicesElThree.appendChild(liEl);
+        choicesElThree.setAttribute('style', 'text-align: center;');
+    }
+    var parentThree = document.querySelector('#displayChoicesThree');
+    var AquestionThree = parent.children[0];
+    var BquestionThree = parent.children[1];
+    var CquestionThree = parent.children[2];
+    var DquestionThree = parent.children[3];
+
+    function Q3wrongOne() {
+        BquestionThree.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
+        playWrongAudio();
+        setTimeout(displayQuestionFour, 500);
+    }
+    function Q3wrongTwo() {
+        CquestionThree.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
+        playWrongAudio();
+        setTimeout(displayQuestionFour, 500);
+    }
+    function Q3wrongThree() {
+        DquestionThree.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: red;');
+        playWrongAudio();
+        setTimeout(displayQuestionFour, 500);
+    }
+    function Q3right() {
+        AquestionThree.setAttribute('style', 'display: block; padding: 10px; border: 2px solid black; width: 150px; margin-left: auto; margin-right: auto; margin-top: 10px; margin-bottom: 10px; background-color: green;');
+        playCorrectAudio();
+        setTimeout(displayQuestionFour, 500);
+    }
+
+    AquestionThree.addEventListener('click', Q3right);
+    BquestionThree.addEventListener('click', Q3wrongOne);
+    CquestionThree.addEventListener('click', Q3wrongTwo);
+    DquestionThree.addEventListener('click', Q3wrongThree);
+
+
+
+}
+
+function displayQuestionFour() {
+    questionElThree.style.display = 'none';
+    var hideDisplayThree = document.querySelector('#hideDisplayThree');
+    hideDisplayThree.style.display = 'none';
+    questionElFour.textContent = fourthQuestion.Question;
+
+
 
 }
 
