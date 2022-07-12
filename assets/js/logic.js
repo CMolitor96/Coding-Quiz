@@ -41,9 +41,6 @@ function enterScores() {
 
 }
 
-// var userData = [];
-//var userDataScore = {};
-// var userDataName = {};
 function showHighScore() {
     var text = localStorage.getItem('Highscores');
     var haz = JSON.parse(text);
@@ -52,18 +49,12 @@ function showHighScore() {
         Name: 'Total',
     };
   }
-  console.log(haz);
     
     var score = secondsLeft;
     var userName = document.querySelector('#userInput').value;
     userGoose = {};
     userGoose[userName] = score;
-    //var userDataScore = {};
-    
-    // userData.push(userDataScore);
-    var finalUserData = Object.assign(haz, userGoose);    // var finalObject = JSON.stringify(finalUserData);
-    // haz.push(finalObject);
-    // console.log(finalUserData);
+    var finalUserData = Object.assign(haz, userGoose);
     location.href = 'highscores.html';
     var myJSON = JSON.stringify(finalUserData);
     localStorage.setItem('Highscores', myJSON);
@@ -74,7 +65,7 @@ function showHighScore() {
 
 //countdown timer
 var timeLeft = document.querySelector('#countdown');
-var secondsLeft = 60;
+var secondsLeft = 75;
 var countdown;
 
 
@@ -86,6 +77,7 @@ function stopTimer() {
     clearInterval(countdown);
 }
 
+//In case they run out of time while taking the test, the questions will disappear
 function countdownTimer() {
     secondsLeft--;
     timeLeft.textContent = secondsLeft;
@@ -449,6 +441,7 @@ function displayQuestionFive() {
     DquestionFive.addEventListener('click', Q5wrongThree);
 }
 
+//Starts quiz on click on start button
 startButton.addEventListener('click', timerAndHideMain);
 
 
